@@ -2,7 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["Testapp/Testapp.csproj", "Testapp/"]
+COPY ["Testapp/Testapp.csproj", "./"]
 RUN dotnet restore "Testapp/Testapp.csproj"
 COPY . .
 
@@ -12,4 +12,5 @@ FROM mcr.microsoft.com/dotnet/aspnet:3.1
 WORKDIR /app
 COPY --from=publish /app/out .
 ENTRYPOINT ["dotnet", "Testapp.dll"]
+
 
