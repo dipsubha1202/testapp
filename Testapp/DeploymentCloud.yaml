@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: testmc
-        image: pensioncr.azurecr.io/testmcimage:latest
+        image: testappcnr.azurecr.io/testmcimage:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
