@@ -1,9 +1,9 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: testmc-deployment 
+  name: testmc-deployment
   labels:
-    app: testmc 
+    app: testmc
 spec:
   replicas: 1
   selector:
@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 8080
       imagePullSecrets:
-      - name: webapisvcsecret 
+        - name: webapisvcsecret  
 ---
 apiVersion: v1
 kind: Service
@@ -28,8 +28,7 @@ metadata:
   name: testmcsvc
 spec:
   type: LoadBalancer
-  ports:
-  - port: 80
   selector:
     app: testmc
-  
+  ports:
+  - port: 80
